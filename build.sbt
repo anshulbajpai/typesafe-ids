@@ -7,5 +7,6 @@ lazy val root = (project in file(".")).
       version      := "0.1.0-SNAPSHOT"
     )),
     name := "typesafe-ids",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies += scalaTest % Test,
+    crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value)
   )
