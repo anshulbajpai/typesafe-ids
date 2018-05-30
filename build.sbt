@@ -1,4 +1,5 @@
 import Dependencies._
+import com.typesafe.sbt.GitBranchPrompt
 
 lazy val root = (project in file(".")).
   settings(
@@ -10,5 +11,5 @@ lazy val root = (project in file(".")).
     )),
     name := "typesafe-ids",
     libraryDependencies += scalaTest % Test,
-    crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value)
-  )
+    crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value),
+  ).enablePlugins(GitBranchPrompt)
