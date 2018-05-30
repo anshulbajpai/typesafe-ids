@@ -21,7 +21,7 @@ class IdSpecs extends WordSpecLike with Matchers {
       val uuids: immutable.IndexedSeq[String] = 1 to numberOfIds map (_ => UUID.randomUUID().toString)
       val uuidsIterator = uuids toIterator
 
-      override implicit val userIdValueGenerator = IdValueGenerator[UserId](() => uuidsIterator.next())
+      implicit val userIdValueGenerator = IdValueGenerator[UserId](() => uuidsIterator.next())
 
       val userIds: immutable.IndexedSeq[String] = (1 to numberOfIds) map (_ => Id[UserId].value)
 
@@ -41,8 +41,6 @@ class IdSpecs extends WordSpecLike with Matchers {
 
 
   trait Setup {
-
-    implicit val userIdValueGenerator = IdValueGenerator[UserId](() => UUID.randomUUID().toString)
 
     trait UserId extends IdType {
       override type IdValue = String
