@@ -3,7 +3,7 @@ A scala library to create typesafe ids for different domain concerns.
 
 [![Build Status](https://travis-ci.org/anshulbajpai/typesafe-ids.svg?branch=master)](https://travis-ci.org/anshulbajpai/typesafe-ids)
 
-##What problem are we trying to solve?
+## What problem are we trying to solve?
 
 Consider a method which tries to add an item to a user's basket.
 
@@ -12,6 +12,7 @@ def addItem(userId: UUID, basketId: UUID, itemId: UUID): Unit
 ```
 
 We know the above method definition is quite fragile. All the three parameter types which are ids have the same type i.e. UUID.
+
 At the call site, we can endup calling the above method by passing wrong arguments as shown below.
 
 ```scala
@@ -35,13 +36,13 @@ class ItemId(val underlying: UUID) extends AnyVal
 def addItem(userId: UserId, basketId: BasketId, itemId: ItemId): Unit
 ```
 
-Now, we can guarantee that it is not possible to pass a wrong argument to the above method.
+Now, we can guarantee that it is not possible to pass a wrong argument type to the above method.
 
 But, we can obviously see structural duplication among the three value classes we created which is not desirable.
 
 ## Introducing typesafe-ids  
 
-With typesafe-ids, we get to save on structural duplication while being completely typessafe.
+With typesafe-ids, we get to save on structural duplication while being completely typesafe.
 
 Here is an example of how they can be used.
 
@@ -74,12 +75,12 @@ The types `UserId`, `BasketId` and `ItemId` are [phantom types](https://blog.cod
 
 ## How to use typesafe-ids?
 
-##### Provide a value 
+#### Provide a value 
 
 As shown in above example, we can create an instance of `Id[UserId]` by passing an argument of type `UUID` to the `apply` method present in the companion object of trait `Id`.
 This type of instantiation is helpful when we already know the id of a domain, e.g. we obtained the id from database or from an external service.
 
-##### Generate a value
+#### Generate a value
 
 We can also let the library generate a value of an Id. This is useful when your service or component is responsible for creating unique ids.
 ```scala
@@ -98,7 +99,7 @@ We can also let the library generate a value of an Id. This is useful when your 
 The above code will create `userId` variable with type `Id[UserId]` with a random UUID value.
 
 
-##### Accessing the internal value
+#### Accessing the internal value
 Till now, we have only learnt how to create the `Id` objects but we didn't see how to access the internal value wrapped inside those objects.
 
 The wrapped value can be accessed simply by accessing the `value` field of the objects.
@@ -111,15 +112,16 @@ val userId2: Id[UserId] = Id[UserId](UUID.randomUUID())
 println(userId2.value)
 ```
 
-##### Library defaults
+#### Library defaults
 
 `UUIDBasedIdType` is already implemented in the library.
+
 To access it, you just need to import `core.idtypes.UUIDBasedIdType`.
 
 If you also want to use the generated value feature, then also import `core.implicits._`
 
 
-##### Custom types
+#### Custom types and contributing
 You can also implement your own custom `IdType`s like how `UUIDBasedIdType` is implemented. 
 
 If you'd like to contribute the new type to the library then open an issue and a PR.
