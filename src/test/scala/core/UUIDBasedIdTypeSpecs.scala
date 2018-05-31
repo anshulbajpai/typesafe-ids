@@ -5,7 +5,6 @@ import java.util.UUID.randomUUID
 
 import core.idtypes.UUIDBasedIdType
 import org.scalatest.{Matchers, WordSpecLike}
-import core.implicits._
 
 class UUIDBasedIdTypeSpecs extends  WordSpecLike with Matchers {
 

@@ -5,7 +5,7 @@ trait IdValueGenerator[A <: IdType] {
 }
 
 object IdValueGenerator {
-  implicit def apply[A <: IdType](implicit f: () => A#IdValue): IdValueGenerator[A] = new IdValueGenerator[A] {
+  def apply[A <: IdType](implicit f: () => A#IdValue): IdValueGenerator[A] = new IdValueGenerator[A] {
     override def generate: A#IdValue = f()
   }
 }

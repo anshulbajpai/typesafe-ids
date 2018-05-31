@@ -77,7 +77,7 @@ The types `UserId`, `BasketId` and `ItemId` are [phantom types](https://blog.cod
 
 #### Provide a value 
 
-As shown in above example, we can create an instance of `Id[UserId]` by passing an argument of type `UUID` to the `apply` method present in the companion object of trait `Id`.
+As shown in above example, we can create an instance of `Id[UserId]` by passing an argument of type `UUID` to the companion object method `Id.apply`. 
 This type of instantiation is helpful when we already know the id of a domain, e.g. we obtained the id from database or from an external service.
 
 #### Generate a value
@@ -90,13 +90,17 @@ We can also let the library generate a value of an Id. This is useful when your 
   trait UUIDBasedIdType extends IdType {
     type IdValue = UUID
   }
-
-  implicit val uuidGenerator: () => UUID = () => UUID.randomUUID()
   
+  object UUIDBasedIdType {
+    implicit def apply[T <: UUIDBasedIdType](implicit gen: () => UUID = () => randomUUID()): IdValueGenerator[T] = IdValueGenerator[T]
+  }
+
   val userId: Id[UserId] = Id[UserId]
 ```
     
 The above code will create `userId` variable with type `Id[UserId]` with a random UUID value.
+
+There is a default uuid generator provided in the companion object method `UUIDBasedIdType.apply`. An explicit generator can also be passed if required to this method.
 
 
 #### Accessing the internal value
@@ -117,8 +121,6 @@ println(userId2.value)
 `UUIDBasedIdType` is already implemented in the library.
 
 To access it, you just need to import `core.idtypes.UUIDBasedIdType`.
-
-If you also want to use the generated value feature, then also import `core.implicits._`
 
 
 #### Custom types and contributing
