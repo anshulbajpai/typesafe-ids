@@ -110,10 +110,12 @@ The wrapped value can be accessed simply by accessing the `value` field of the o
 
 ```scala
 val userId1: Id[UserId] = Id[UserId]
-println(userId1.value)
+val value1: UUID = userId1.value
+println(value1)
 
 val userId2: Id[UserId] = Id[UserId](UUID.randomUUID())
-println(userId2.value)
+val value2: UUID = userId2.value
+println(value2)
 ```
 
 #### Library defaults
