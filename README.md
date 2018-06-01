@@ -77,6 +77,14 @@ The types `UserId`, `BasketId` and `ItemId` are [phantom types](https://blog.cod
 
 ## How to use typesafe-ids?
 
+Include typesafe-ids via SBT from maven central
+
+```scala
+libraryDependencies += "com.github.anshulbajpai" %% "typesafe-ids" % "0.1.0"
+```
+
+We support scala 2.10, 2.11 and 2.12.
+
 #### Provide a value 
 
 As shown in above example, we can create an instance of `Id[UserId]` by passing an argument of type `UUID` to the companion object method `Id.apply`. 
