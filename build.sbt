@@ -1,5 +1,6 @@
 import Dependencies._
 import com.typesafe.sbt.GitBranchPrompt
+import ReleaseTransformations._
 
 lazy val root = (project in file(".")).
   settings(
@@ -12,5 +13,20 @@ lazy val root = (project in file(".")).
     libraryDependencies += scalaTest % Test,
     crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value),
     publishTo := sonatypePublishTo.value,
-    git.formattedShaVersion := git.gitHeadCommit.value map { _.take(7) }
+    git.formattedShaVersion := git.gitHeadCommit.value map { _.take(7) },
+    releaseCrossBuild := true,
+    releaseProcess := Seq[ReleaseStep](
+      checkSnapshotDependencies,
+      inquireVersions,
+      runClean,
+      runTest,
+      setReleaseVersion,
+      commitReleaseVersion,
+      tagRelease,
+      releaseStepCommandAndRemaining("+publishSigned"),
+      setNextVersion,
+      commitNextVersion,
+      releaseStepCommand("sonatypeReleaseAll"),
+      pushChanges
+    )
   ).enablePlugins(GitBranchPrompt, GitVersioning)
