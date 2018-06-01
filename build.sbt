@@ -29,4 +29,4 @@ lazy val root = (project in file(".")).
       releaseStepCommand("sonatypeReleaseAll"),
       pushChanges
     )
-  ).enablePlugins(GitBranchPrompt, GitVersioning)
+  ).enablePlugins(GitBranchPrompt)
