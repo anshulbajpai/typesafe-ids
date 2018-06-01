@@ -2,7 +2,7 @@
 A scala library to create typesafe ids for different domain concerns.
 
 [![Build Status](https://travis-ci.org/anshulbajpai/typesafe-ids.svg?branch=master)](https://travis-ci.org/anshulbajpai/typesafe-ids) 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.anshulbajpai/typesafe-ids/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.anshulbajpai/typesafe-ids)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.anshulbajpai/typesafe-ids/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.anshulbajpai/typesafe-ids)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 
   
