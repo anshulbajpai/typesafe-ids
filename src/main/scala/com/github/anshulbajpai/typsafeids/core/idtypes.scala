@@ -1,4 +1,4 @@
-package core
+package com.github.anshulbajpai.typsafeids.core
 
 import java.util.UUID
 import java.util.UUID.randomUUID

@@ -30,7 +30,7 @@ To overcome the above problem, an obvious solution is to have dedicated types fo
 
 ## Using value classes
 
-We can solve the above problem by having dedicated [value classes](https://docs.scala-lang.org/overviews/core/value-classes.html)
+We can solve the above problem by having dedicated [value classes](https://docs.scala-lang.org/overviews/com.github.anshulbajpai.typsafeids.core/value-classes.html)
  
 ```scala
 class UserId(val underlying: UUID) extends AnyVal
@@ -134,7 +134,7 @@ println(value2)
 
 `UUIDBasedIdType` is already implemented in the library.
 
-To access it, you just need to import `core.idtypes.UUIDBasedIdType`.
+To access it, you just need to import `com.github.anshulbajpai.typsafeids.core.idtypes.UUIDBasedIdType`.
 
 
 #### Custom types and contributing

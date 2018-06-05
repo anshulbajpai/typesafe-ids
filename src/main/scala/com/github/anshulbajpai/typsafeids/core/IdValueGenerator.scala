@@ -1,4 +1,4 @@
-package core
+package com.github.anshulbajpai.typsafeids.core
 
 trait IdValueGenerator[A <: IdType] {
   def generate: A#IdValue

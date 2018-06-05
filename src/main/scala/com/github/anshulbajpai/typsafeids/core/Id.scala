@@ -1,4 +1,4 @@
-package core
+package com.github.anshulbajpai.typsafeids.core
 
 trait Id[A <: IdType] {
   def value: A#IdValue

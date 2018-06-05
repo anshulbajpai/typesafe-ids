@@ -1,9 +1,9 @@
-package core
+package com.github.anshulbajpai.typsafeids.core
 
 import java.util.UUID
 import java.util.UUID.randomUUID
 
-import core.idtypes.UUIDBasedIdType
+import com.github.anshulbajpai.typsafeids.core.idtypes.UUIDBasedIdType
 import org.scalatest.{Matchers, WordSpecLike}
 
 class UUIDBasedIdTypeSpecs extends  WordSpecLike with Matchers {
