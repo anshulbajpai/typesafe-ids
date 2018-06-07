@@ -52,8 +52,8 @@ Here is an example of how they can be used.
 
 ```scala
 
-  import core.IdType
-  import core.Id
+  import com.github.anshulbajpai.typsafeids.core.IdType
+  import com.github.anshulbajpai.typsafeids.core.Id
     
   trait UUIDBasedIdType extends IdType {
     type IdValue = UUID
@@ -96,8 +96,8 @@ This type of instantiation is helpful when we already know the id of a domain, e
 
 We can also let the library generate a value of an Id. This is useful when your service or component is responsible for creating unique ids.
 ```scala
-  import core.IdType
-  import core.Id
+  import com.github.anshulbajpai.typsafeids.core.IdType
+  import com.github.anshulbajpai.typsafeids.core.Id
     
   trait UUIDBasedIdType extends IdType {
     type IdValue = UUID
