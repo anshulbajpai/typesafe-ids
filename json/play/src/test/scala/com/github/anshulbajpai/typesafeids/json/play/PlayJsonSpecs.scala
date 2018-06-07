@@ -1,4 +1,4 @@
-package com.github.anshulbajpai.typsafeids.json.play
+package com.github.anshulbajpai.typesafeids.json.play
 
 import java.util.UUID
 
@@ -6,10 +6,9 @@ import com.github.anshulbajpai.typsafeids.core.Id
 import com.github.anshulbajpai.typsafeids.core.idtypes.UUIDBasedIdType
 import org.scalatest.{Matchers, WordSpec}
 import play.api.libs.json.{JsString, JsSuccess, Json}
+import implicits._
 
 class PlayJsonSpecs extends WordSpec with Matchers {
-
-  import com.github.anshulbajpai.typsafeids.json.play.implicits._
 
   "play json" should {
 

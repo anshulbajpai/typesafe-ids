@@ -1,5 +1,5 @@
 
-/target/
+target/
 /.idea/
-/project/target/
-/project/project/
+project/target/
+project/project/

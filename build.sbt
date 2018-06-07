@@ -29,10 +29,16 @@ lazy val root = (project in file(".")).
     Test / test := {},
     publishArtifact  := false,
   ).enablePlugins(GitBranchPrompt)
-  .aggregate(core)
+  .aggregate(core, playjson)
 
 lazy val core = project
   .settings(
     name := "typesafe-ids",
+  )
+
+lazy val playjson = (project in file("json/play"))
+  .settings(
+    name := "typesafe-ids-json-play",
     libraryDependencies += playJson
   )
+  .dependsOn(core)

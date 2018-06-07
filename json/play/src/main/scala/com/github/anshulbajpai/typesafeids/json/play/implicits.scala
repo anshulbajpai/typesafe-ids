@@ -1,4 +1,4 @@
-package com.github.anshulbajpai.typsafeids.json.play
+package com.github.anshulbajpai.typesafeids.json.play
 
 import com.github.anshulbajpai.typsafeids.core.{Id, IdType}
 import play.api.libs.json._
