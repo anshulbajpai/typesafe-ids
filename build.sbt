@@ -10,6 +10,7 @@ lazy val root = (project in file(".")).
       libraryDependencies += scalaTest % Test,
       crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value),
       releaseCrossBuild := true,
+      releaseUseGlobalVersion := false,
       releaseProcess := Seq[ReleaseStep](
         checkSnapshotDependencies,
         inquireVersions,
@@ -34,11 +35,13 @@ lazy val root = (project in file(".")).
 lazy val core = project
   .settings(
     name := "typesafe-ids",
+    releaseVersionFile := file(s"${baseDirectory.value}/version.sbt")
   )
 
 lazy val playjson = (project in file("json/play"))
   .settings(
     name := "typesafe-ids-json-play",
-    libraryDependencies += playJson
+    libraryDependencies += playJson,
+    releaseVersionFile := file(s"${baseDirectory.value}/version.sbt")
   )
   .dependsOn(core)
