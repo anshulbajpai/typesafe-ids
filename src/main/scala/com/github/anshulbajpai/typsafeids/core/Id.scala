@@ -1,14 +1,8 @@
 package com.github.anshulbajpai.typsafeids.core
 
-trait Id[A <: IdType] {
-  def value: A#IdValue
-}
+case class Id[A <: IdType](value: A#IdValue) extends AnyVal
 
 object Id {
-
   def apply[T <: IdType](implicit generator: IdValueGenerator[T]): Id[T] = apply(generator.generate)
-
-  def apply[T <: IdType](newValue: T#IdValue): Id[T] = new Id[T] {
-    override val value: T#IdValue = newValue
-  }
+  def apply[T <: IdType](newValue: T#IdValue): Id[T] = new Id[T](newValue)
 }
