@@ -1,6 +1,8 @@
 import Dependencies._
 import com.typesafe.sbt.GitBranchPrompt
 import ReleaseTransformations._
+import xerial.sbt.Sonatype._
+
 
 lazy val root = (project in file(".")).
   settings(
@@ -10,7 +12,6 @@ lazy val root = (project in file(".")).
       libraryDependencies += scalaTest % Test,
       crossScalaVersions := Seq("2.11.12", scalaVersion.value),
     )),
-    ThisBuild / publishTo  := sonatypePublishTo.value,
     Test / test := {},
     publishArtifact  := false,
     releaseProcess := Seq[ReleaseStep](),
@@ -20,6 +21,7 @@ lazy val root = (project in file(".")).
 lazy val core = project
   .settings(
     name := "typesafe-ids",
+    commonPublishSettings,
     commonReleaseSettings,
     releaseVersionFile := file(s"${baseDirectory.value}/version.sbt")
   )
@@ -28,6 +30,7 @@ lazy val playjson = (project in file("json/play"))
   .settings(
     name := "typesafe-ids-json-play",
     libraryDependencies += playJson,
+    commonPublishSettings,
     commonReleaseSettings,
     releaseVersionFile := file(s"${baseDirectory.value}/version.sbt")
   )
@@ -51,4 +54,11 @@ lazy val commonReleaseSettings = Seq(
     releaseStepCommand("sonatypeReleaseAll"),
     pushChanges
   )
+)
+
+lazy val commonPublishSettings = Seq(
+  publishTo  := sonatypePublishTo.value,
+  publishMavenStyle := true,
+  licenses := Seq("MIT" -> url("https://mit-license.org/license.txt")),
+  sonatypeProjectHosting := Some(GitHubHosting("anshulbajpai", "typesafe-ids", "bajpai.anshul@gmail.com"))
 )
