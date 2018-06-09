@@ -85,7 +85,7 @@ Include typesafe-ids via SBT from maven central
 libraryDependencies += "com.github.anshulbajpai" %% "typesafe-ids" % "0.1.0"
 ```
 
-We support scala 2.11 and 2.12.
+We support scala 2.10, 2.11 and 2.12.
 
 #### Provide a value 
 
