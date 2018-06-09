@@ -82,7 +82,7 @@ The types `UserId`, `BasketId` and `ItemId` are [phantom types](https://blog.cod
 Include typesafe-ids via SBT from maven central
 
 ```scala
-libraryDependencies += "com.github.anshulbajpai" %% "typesafe-ids" % "0.2.0"
+libraryDependencies += "com.github.anshulbajpai" %% "typesafe-ids" % "0.3.0"
 ```
 
 We support scala 2.10, 2.11 and 2.12.
