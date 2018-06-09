@@ -13,6 +13,7 @@ lazy val root = (project in file(".")).
     crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value),
     publishTo  := sonatypePublishTo.value,
     releaseCrossBuild := true,
+    releaseVersionBump := sbtrelease.Version.Bump.Minor,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
