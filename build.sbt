@@ -7,7 +7,7 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization := "com.github.anshulbajpai",
       name := "typesafe-ids",
-      scalaVersion := "2.12.6",
+      scalaVersion := "2.12.6"
     )),
     libraryDependencies += scalaTest % Test,
     crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value),
