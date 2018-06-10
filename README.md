@@ -141,3 +141,8 @@ To access it, you just need to import `com.github.anshulbajpai.typsafeids.core.i
 You can also implement your own custom `IdType`s like how `UUIDBasedIdType` is implemented. 
 
 If you'd like to contribute the new type to the library then open an issue and a PR.
+
+
+## Other integrations
+
+* [typesafe-ids-play-json](https://github.com/anshulbajpai/typesafe-ids-play-json), an integration for [play-json](https://github.com/playframework/play-json) 
